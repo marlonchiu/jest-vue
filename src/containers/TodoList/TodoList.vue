@@ -1,14 +1,16 @@
 <template>
-  <div class="hello">
-    <h1 class="mmm">{{ msg }}</h1>
+  <div class="todo-list-Page">
+    <h1>TodoList</h1>
+    <Header />
   </div>
 </template>
 
 <script>
+import Header from './components/Header'
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
+  name: 'TodoList',
+  components: {
+    Header
   }
 }
 </script>
