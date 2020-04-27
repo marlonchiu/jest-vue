@@ -3,11 +3,11 @@ import TodoList from '../../TodoList.vue'
 import Header from '../../components/Header'
 
 describe('TodoList.vue', () => {
-  it ('组件渲染正常', () => {
-    const wrapper = shallowMount(TodoList)
+  it('组件渲染正常', () => {
+    // const wrapper = shallowMount(TodoList)
   })
 
-  it ('TodoList 初始化的时候， undoList 为空', () => {
+  it('TodoList 初始化的时候， undoList 为空', () => {
     const wrapper = shallowMount(TodoList)
     const undoList = wrapper.vm.$data.undoList
     expect(undoList).toEqual([])

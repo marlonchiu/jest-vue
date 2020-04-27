@@ -1,6 +1,5 @@
 <template>
   <div class="todo-list-Page">
-    <h1>TodoList</h1>
     <Header @add="addUndoItem"/>
     <ul>
       <li v-for="(item, index) in undoList" :key="index">{{item}}</li>
