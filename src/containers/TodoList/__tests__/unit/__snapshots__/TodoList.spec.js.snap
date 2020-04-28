@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoList.vue 样式改变 做提示 1`] = `
+<div class="todo-list-Page">
+  <header-stub></header-stub>
+  <undolist-stub list=""></undolist-stub>
+</div>
+`;

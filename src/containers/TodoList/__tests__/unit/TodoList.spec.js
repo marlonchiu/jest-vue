@@ -4,18 +4,19 @@ import TodoList from '../../TodoList.vue'
 import UndoList from '../../components/UndoList'
 
 describe('TodoList.vue', () => {
-  it('组件渲染正常', () => {
-    // const wrapper = shallowMount(TodoList)
+  it('样式改变 做提示', () => {
+    const wrapper = shallowMount(TodoList)
+    expect(wrapper).toMatchSnapshot()
   })
 
-  it('TodoList 初始化的时候， undoList 为空', () => {
+  it('初始化的时候， undoList 为空', () => {
     const wrapper = shallowMount(TodoList)
     const undoList = wrapper.vm.$data.undoList
     expect(undoList).toEqual([])
   })
 
-  it('TodoList 中 addUndoItem 被执行， undoList内容增加 1', () => {
-    // TodoList 监听到 Header 的 add 事件的时候， undoList 增加一个内容
+  it('addUndoItem 被执行， undoList内容增加 1', () => {
+    // 监听到 Header 的 add 事件的时候， undoList 增加一个内容
     // 涉及到交互为集成测试
     // const content = 'dell lee'
     // const wrapper = shallowMount(TodoList)
@@ -33,14 +34,14 @@ describe('TodoList.vue', () => {
     expect(wrapper.vm.$data.undoList).toEqual([1, 2, 3, 4])
   })
 
-  it('TodoList 调用 UndoList, 应该传递 list 参数', () => {
+  it('调用 UndoList, 应该传递 list 参数', () => {
     const wrapper = shallowMount(TodoList)
     const undoList = wrapper.find(UndoList)
     const list = undoList.props('list')
     expect(list).toBeTruthy()
   })
 
-  it('TodoList 中 handleItemDelete 方法被调用时，undoList内容减少 1', () => {
+  it('handleItemDelete 方法被调用时，undoList内容减少 1', () => {
     const wrapper = shallowMount(TodoList)
     wrapper.setData({
       undoList: [1, 2, 3]
