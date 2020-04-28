@@ -1,17 +1,17 @@
 <template>
-    <div class="header">
-      <div class="header-content">
-        TodoList
-        <input
-          class="header-input"
-          type="text"
-          data-test="input"
-          v-model="inputValue"
-          @keyup.enter="addTodoItem"
-          placeholder="Please Add Todo Item"
-        >
-      </div>
+  <div class="header">
+    <div class="header-content">
+      TodoList
+      <input
+        class="header-input"
+        type="text"
+        data-test="input"
+        v-model="inputValue"
+        @keyup.enter="addTodoItem"
+        placeholder="Please Add Todo Item"
+      >
     </div>
+  </div>
 </template>
 
 <script>
