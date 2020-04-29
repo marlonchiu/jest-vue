@@ -1,7 +1,12 @@
 <template>
   <div class="todo-list-Page">
     <Header @add="addUndoItem" />
-    <UndoList :list="undoList" @delete="handleItemDelete"/>
+    <UndoList
+      :list="undoList"
+      @delete="handleItemDelete"
+      @status="changeItemStatus"
+      @reset="resetItemStatus"
+    />
   </div>
 </template>
 
@@ -21,10 +26,38 @@ export default {
   },
   methods: {
     addUndoItem (data) {
-      this.undoList.push(data)
+      this.undoList.push({
+        value: data,
+        status: 'div'
+      })
     },
     handleItemDelete (index) {
       this.undoList.splice(index, 1)
+    },
+    changeItemStatus (index) {
+      const newList = []
+      this.undoList.forEach((item, itemIndex) => {
+        if (itemIndex === index) {
+          newList.push({
+            value: item.value,
+            status: 'input'
+          })
+        } else {
+          newList.push(item)
+        }
+      })
+
+      this.undoList = newList
+    },
+    resetItemStatus () {
+      const newList = []
+      this.undoList.forEach(({ value }) => {
+        newList.push({
+          value,
+          status: 'div'
+        })
+      })
+      this.undoList = newList
     }
   }
 }
