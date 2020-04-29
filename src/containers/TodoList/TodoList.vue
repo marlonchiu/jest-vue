@@ -6,6 +6,7 @@
       @delete="handleItemDelete"
       @status="changeItemStatus"
       @reset="resetItemStatus"
+      @change="changeItemValue"
     />
   </div>
 </template>
@@ -58,6 +59,10 @@ export default {
         })
       })
       this.undoList = newList
+    },
+    changeItemValue (newItem) {
+      const { value, index } = newItem
+      this.undoList[index].value = value
     }
   }
 }

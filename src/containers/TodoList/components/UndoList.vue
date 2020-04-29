@@ -15,6 +15,7 @@
         <input
           v-if="item.status === 'input'"
           type="text"
+          class="item-input"
           data-test="input"
           :value="item.value"
           @blur="handleInputBlur"
@@ -89,6 +90,11 @@ export default {
       border-left 5px solid #629a9a
       border-radius 3px
       text-indent 10px
+      .item-input {
+        width 460px
+        height 22px
+        text-indent 10px
+      }
       .delete-button {
         display block
         float right

@@ -93,20 +93,16 @@ describe('UndoList.vue', () => {
       propsData: {
         list: [
           { value: 1, status: 'div' },
-          { value: 2, status: 'input' },
+          { value: 123, status: 'input' },
           { value: 3, status: 'div' }
         ]
       }
     })
     const inputElem = findTestWrapper(wrapper, 'input').at(0)
-    inputElem.trigger('change', {
-      value: 123,
-      index: 1
-    })
-    console.log(wrapper.emitted().change)
+    inputElem.trigger('change')
     expect(wrapper.emitted().change).toBeTruthy()
     expect(wrapper.emitted().change[0][0]).toEqual({
-      value: 123,
+      value: '123',
       index: 1
     })
   })
