@@ -4,11 +4,11 @@
       正在进行
       <span class="count" data-test="count">{{list.length}}</span>
     </div>
-    <ul class="item-list">
+    <ul class="list">
       <li
         v-for="(item, index) in list"
         :key="index"
-        data-test="item"
+        data-test="list-item"
         class="item"
         @click="() => { changeStatus(index) }"
       >
@@ -22,7 +22,13 @@
           @change="(e) => { handleInputChange(e.target.value, index) }"
         />
         <span v-else>{{ item.value }}</span>
-        <span class="delete-button" data-test="delete-button" @click="() => { handleDelete(index) }">-</span>
+        <span
+          class="delete-button"
+          data-test="delete-button"
+          @click="() => { handleDelete(index) }"
+        >
+          -
+        </span>
       </li>
     </ul>
   </div>
@@ -79,7 +85,7 @@ export default {
       color #000
     }
   }
-  .item-list{
+  .list{
     width 100%
     list-style-type none
     .item {
