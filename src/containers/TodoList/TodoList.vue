@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import Header from './components/Header'
 import UndoList from './components/UndoList'
 export default {
@@ -24,6 +25,16 @@ export default {
     return {
       undoList: []
     }
+  },
+  mounted () {
+    setTimeout(() => {
+      axios.get('/getUndoList.json').then((res) => {
+        console.log(res.data)
+        this.undoList = res.data
+      }).catch((e) => {
+        console.log(e)
+      })
+    }, 10000)
   },
   methods: {
     addUndoItem (data) {
